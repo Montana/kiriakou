@@ -2,10 +2,7 @@
 
 Post-2FA humanity verification for **Nuxt 3**.
 
-Two-factor authentication proves *possession of a factor*. It does not prove a
-**human** is driving the session right now — hijacked sessions, replayed tokens,
-and headless automation all survive 2FA. `kiriakou` runs *after* login and
-scores whether the live session is a person, then mints a short-lived
+Two-factor authentication proves *possession of a factor*. It does not prove a **human** is driving the session right now — hijacked sessions, replayed tokens, and headless automation all survive 2FA. `kiriakou` runs *after* login and scores whether the live session is a person, then mints a short-lived
 "humanity" token you can require on high-risk actions.
 
 It combines three independent signals, all scored **server-side** so a client
@@ -18,10 +15,6 @@ can't just claim it passed:
 3. **Proof-of-work** — a small, tunable CPU cost that raises the price of
    high-volume automated abuse without inconveniencing a human.
 
-> Honest scope: this is a **cost-raising, defence-in-depth** layer, not an
-> unbreakable oracle. A determined, well-funded adversary can emulate human-like
-> input. Use it alongside rate limiting, anomaly detection, and server-side
-> authorization — never as a sole gate.
 
 ## Install
 
@@ -108,8 +101,7 @@ try {
 
 ## How scoring works
 
-`verify` re-derives the expected answer from the **signed** challenge token
-(never from the request body), verifies the proof-of-work against the server's
+`verify` re-derives the expected answer from the **signed** challenge token (never from the request body), verifies the proof-of-work against the server's
 nonce, then runs a transparent weighted score:
 
 | Signal        | Weight | What it catches                              |
@@ -135,9 +127,7 @@ tuning. Adjust `threshold` to trade off friction against security.
 
 ## Privacy
 
-Only aggregate interaction *shape* is sent to the server (path length, variance,
-timing distributions). No keys pressed and no raw coordinate stream leave the
-browser. No third-party tracking.
+Only aggregate interaction *shape* is sent to the server (path length, variance, timing distributions). No keys pressed and no raw coordinate stream leave the browser. No third-party tracking.
 
 ## Files
 
@@ -161,3 +151,5 @@ src/
       utils/guard.ts              assertHuman / getHumanity
 playground/                       runnable example
 ```
+## Author
+Michael Mendy.

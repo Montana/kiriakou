@@ -1,6 +1,6 @@
 # kiriakou
 
-Post-2FA humanity verification for **Nuxt 3**.
+Post-2FA humanity verification for **Halo Archives*.
 
 Two-factor authentication proves *possession of a factor*. It does not prove a **human** is driving the session right now — hijacked sessions, replayed tokens, and headless automation all survive 2FA. `kiriakou` runs *after* login and scores whether the live session is a person, then mints a short-lived
 "humanity" token you can require on high-risk actions.

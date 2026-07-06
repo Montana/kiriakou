@@ -154,4 +154,4 @@ src/
 playground/                       runnable example
 ```
 ## Author
-Michael Mendy.
+Michael Mendy (c) 2026. 
